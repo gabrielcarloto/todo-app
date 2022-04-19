@@ -16,6 +16,7 @@ interface PostProps {
 
 const Home = ({ todos }: PostProps) => {
   const [description, setDescription] = useState('');
+  const [todosList, setTodosList] = useState<Todo[]>(todos);
 
   const handleClick = async (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -23,7 +24,15 @@ const Home = ({ todos }: PostProps) => {
     await fetch('/api/todo', {
       method: 'POST',
       body: JSON.stringify(description),
-    });
+    })
+      .then((r) => {
+        if (r.status !== 200) return console.log('Aconteceu um erro');
+        return r.json();
+      })
+      .then((todo) => {
+        setTodosList([...todosList, todo]);
+        setDescription('');
+      });
   };
 
   return (
@@ -53,7 +62,7 @@ const Home = ({ todos }: PostProps) => {
           </div>
         </form>
         <div>
-          {todos?.map((item, i) => (
+          {todosList?.map((item, i) => (
             <div key={item.id} className="flex justify-center">
               <div className=" relative justify-center mt-6">
                 <div className="absolute flex top-0 right-0 p-3 space-x-1">

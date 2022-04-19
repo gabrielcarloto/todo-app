@@ -11,9 +11,11 @@ export async function getAllTodos() {
 }
 
 export async function createTodo(description: string) {
-  await prisma.todo.create({
+  const result = await prisma.todo.create({
     data: {
       description,
     },
   });
+
+  return result;
 }
