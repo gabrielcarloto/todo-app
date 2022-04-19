@@ -19,7 +19,7 @@ const Home = ({ todos }: PostProps) => {
   const [description, setDescription] = useState('');
   const [todosList, setTodosList] = useState<Todo[]>(todos);
 
-  const handleClick = async (e: React.FormEvent<HTMLButtonElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
     NProgress.start();
 
@@ -57,7 +57,7 @@ const Home = ({ todos }: PostProps) => {
               />
               <button
                 className="bg-green-500 px-2 py-1 rounded-md text-white font-semibold"
-                onClick={(e) => handleClick(e)}
+                onClick={(e) => handleSubmit(e)}
               >
                 send
               </button>
