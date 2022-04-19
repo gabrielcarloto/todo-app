@@ -1,6 +1,7 @@
 import { GetServerSideProps } from 'next';
 import { useState } from 'react';
 import { getAllTodos, Todo } from '../lib/db';
+import NProgress from 'nprogress';
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const todos = await getAllTodos();
@@ -20,6 +21,7 @@ const Home = ({ todos }: PostProps) => {
 
   const handleClick = async (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    NProgress.start();
 
     await fetch('/api/todo', {
       method: 'POST',
@@ -32,6 +34,7 @@ const Home = ({ todos }: PostProps) => {
       .then((todo) => {
         setTodosList([...todosList, todo]);
         setDescription('');
+        NProgress.done();
       });
   };
 

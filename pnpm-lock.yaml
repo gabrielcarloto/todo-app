@@ -3,12 +3,14 @@ lockfileVersion: 5.3
 specifiers:
   '@prisma/client': ^3.12.0
   '@types/node': 17.0.25
+  '@types/nprogress': ^0.2.0
   '@types/react': 18.0.5
   '@types/react-dom': 18.0.1
   autoprefixer: ^10.4.4
   eslint: 8.13.0
   eslint-config-next: 12.1.5
   next: 12.1.5
+  nprogress: ^0.2.0
   postcss: ^8.4.12
   prisma: ^3.12.0
   react: 18.0.0
@@ -18,7 +20,9 @@ specifiers:
 
 dependencies:
   '@prisma/client': 3.12.0_prisma@3.12.0
+  '@types/nprogress': 0.2.0
   next: 12.1.5_react-dom@18.0.0+react@18.0.0
+  nprogress: 0.2.0
   react: 18.0.0
   react-dom: 18.0.0_react@18.0.0
 
@@ -256,6 +260,10 @@ packages:
   /@types/node/17.0.25:
     resolution: {integrity: sha512-wANk6fBrUwdpY4isjWrKTufkrXdu1D2YHCot2fD/DfWxF5sMrVSA+KN7ydckvaTCh0HiqX9IVl0L5/ZoXg5M7w==}
     dev: true
+
+  /@types/nprogress/0.2.0:
+    resolution: {integrity: sha512-1cYJrqq9GezNFPsWTZpFut/d4CjpZqA0vhqDUPFWYKF1oIyBz5qnoYMzR+0C/T96t3ebLAC1SSnwrVOm5/j74A==}
+    dev: false
 
   /@types/prop-types/15.7.5:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
@@ -1508,6 +1516,10 @@ packages:
     resolution: {integrity: sha1-LRDAa9/TEuqXd2laTShDlFa3WUI=}
     engines: {node: '>=0.10.0'}
     dev: true
+
+  /nprogress/0.2.0:
+    resolution: {integrity: sha1-y480xTIT2JVyP8urkH6UIq28r7E=}
+    dev: false
 
   /object-assign/4.1.1:
     resolution: {integrity: sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=}
