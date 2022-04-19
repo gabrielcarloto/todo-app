@@ -19,3 +19,13 @@ export async function createTodo(description: string) {
 
   return result;
 }
+
+export async function deleteTodo(id: number) {
+  const result = await prisma.todo.delete({
+    where: {
+      id,
+    },
+  });
+
+  return result;
+}

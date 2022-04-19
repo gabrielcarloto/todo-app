@@ -38,6 +38,20 @@ const Home = ({ todos }: PostProps) => {
       });
   };
 
+  const handleDelete = async (id: number) => {
+    NProgress.start();
+
+    await fetch('/api/todo', {
+      method: 'DELETE',
+      body: JSON.stringify(id),
+    }).then((r) => {
+      if (r.status !== 200) return console.log('Aconteceu um erro');
+
+      setTodosList(todosList.filter((todo) => todo.id !== id));
+      NProgress.done();
+    });
+  };
+
   return (
     <div className="h-screen bg-gray-500">
       <nav className="flex justify-center p-4 bg-gray-600">
@@ -85,7 +99,10 @@ const Home = ({ todos }: PostProps) => {
                       />
                     </svg>
                   </span>
-                  <span>
+                  <span
+                    className="cursor-pointer"
+                    onClick={() => handleDelete(item.id)}
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-6 w-6"
